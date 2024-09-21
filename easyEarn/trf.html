@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <title></title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #F5F5F5;
+        }
+
+        .container {
+            height: 540px;
+            width: 97%;
+            background: #FFFFFF;
+            border-radius: 10px;
+            padding-left: 11px;
+            padding-top: 14px;
+            box-shadow: 0px 0px 5px #ccc;
+            position: relative;
+            text-align: center;
+        }
+
+        .fle {
+            padding: 10px;
+        }
+
+        .inn {
+            background: #FCF8E3;
+            color: #67532A;
+            width: 89%;
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-top: 10px;
+            height: 60px;
+            display: flex;
+            border-radius: 4px;
+            margin-top: 29px;
+        }
+
+        .container span {
+            padding-right: 20px;
+            padding-top: 30px;
+            padding-left: 5px;
+        }
+
+        .loading-container {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+
+.spinner {
+  --d: 17.6px;
+  width: 3.2px;
+  height: 3.2px;
+  border-radius: 50%;
+  color: #474bff;
+  box-shadow: calc(1*var(--d)) calc(0*var(--d)) 0 0,
+    calc(0.707*var(--d)) calc(0.707*var(--d)) 0 0.8px,
+    calc(0*var(--d)) calc(1*var(--d)) 0 1.6px,
+    calc(-0.707*var(--d)) calc(0.707*var(--d)) 0 2.4px,
+    calc(-1*var(--d)) calc(0*var(--d)) 0 3.2px,
+    calc(-0.707*var(--d)) calc(-0.707*var(--d))0 4px,
+    calc(0*var(--d)) calc(-1*var(--d)) 0 4.8px;
+  animation: spinner-a90wxe 1s infinite steps(8);
+}
+
+@keyframes spinner-a90wxe {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+        .loading-text {
+            font-size: 14px;
+            color: #333;
+            white-space: nowrap;
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        .confirm-button {
+            padding: 10px 20px;
+            background-color: #000;
+            color: white;
+                    font-family: 'Poppins', sans-serif;
+
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .confirm-button:hover {
+            background-color: #357ab8;
+        }
+
+        .success-popup {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 280px;
+            background-color: #fff;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            padding: 20px;
+            opacity: 0;
+            z-index: 1000;
+            transition: opacity 0.5s ease;
+        }
+
+        .success-popup img {
+            width: 50px;
+            margin-bottom: 20px;
+        }
+        
+@supports (animation: grow .5s cubic-bezier(.25, .25, .25, 1) forwards) {
+     .tick {
+        stroke-opacity: 0;
+        stroke-dasharray: 29px;
+        stroke-dashoffset: 29px;
+        animation: draw .5s cubic-bezier(.25, .25, .25, 1) forwards;
+        animation-delay: .6s
+    }
+
+    .circle {
+        fill-opacity: 0;
+        stroke: #219a00;
+        stroke-width: 16px;
+        transform-origin: center;
+        transform: scale(0);
+        animation: grow 1s cubic-bezier(.25, .25, .25, 1.25) forwards;   
+    }   
+}
+
+@keyframes grow {
+    60% {
+        transform: scale(.8);
+        stroke-width: 4px;
+        fill-opacity: 0;
+    }
+    100% {
+        transform: scale(.9);
+        stroke-width: 8px;
+        fill-opacity: 1;
+        fill: #219a00;
+    }
+}
+
+@keyframes draw {
+    0%, 100% { stroke-opacity: 1; }
+    100% { stroke-dashoffset: 0; }
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    visibility: hidden; /* Hide the overlay initially */
+}
+.overlay:target {
+  opacity: 1;
+  visibility: visible;
+}
+
+.overlay:target+.success-popup {
+  opacity: 1;
+  visibility: visible;
+}
+    </style>
+</head>
+<body>
+    <div class="fle">
+        <div class="container">
+            <strong>Pay with Transfer</strong>
+            <p style="font-size: 11px; color: #0A061F;">Make a bank transfer of NGN 5,000.00 to the account number below to complete your transaction.</p>
+
+            <div class="inn">
+                <img src="alt.jpeg" alt="alt.jpeg" style="width: 20px; height: 20px; margin-top: 15px; margin-right: 12px;">
+                <p style="font-size: 10px">Make a transfer to the account below to get your account connected and get credited immediately</p>
+            </div>
+            <span style="float: left; padding-right: 20px; padding-top: 20px; padding-left: 5px; font-size: 14px;">Bank Name:</span>
+            <span style="float: right; padding-right: 20px; padding-top: 20px; padding-left: 5px;">OPay(PAYCOM)</span>
+            <span style="float: left; font-size: 14px;">Account Name:</span>
+            <span style="float: right;">Moses Dio</span>
+
+            <span style="float: left; font-size: 14px;">Account Number:</span>
+            <span style="float: right;">6101759206</span>
+            <br>
+            <span style="float: left;">Amount: </span>
+            <span style="float: right;">NGN 5,000.00</span>
+            <img src="hr.jpeg" alt="hr.jpeg" style="width: 95%; height: 3px; margin-top: 33px;">
+
+            <div class="button-container">
+                <button class="confirm-button" id="confirmButton">Confirm My Payment</button>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="loading-container" id="loader">
+<div class="spinner">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+                </div>
+                <span class="loading-text">Checking Payment! Please be Patient...</span>
+            </div>
+<div class="overlay"></div>
+            <div class="success-popup" id="successPopup">
+                <h3>No payments was found!</h3>
+                <p>make your payments now to get credited.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('confirmButton').addEventListener('click', function () {
+            document.getElementById('confirmButton').style.display = 'none'; 
+            document.getElementById('loader').style.display = 'flex'; 
+
+
+            setTimeout(function () {
+                document.getElementById('loader').style.opacity = '0';
+                setTimeout(function () {
+                    document.getElementById('loader').style.display = 'none';
+                    document.getElementById('successPopup').style.display = 'block';
+                    setTimeout(function () {
+                        document.getElementById('successPopup').style.opacity = '1';
+                    }, 100);
+                }, 500);
+            }, 3000); 
+        });
+        
+        let path = document.querySelector(".tick");
+        let length = path.getTotalLength();
+        
+        console.log(length);
+    </script>
+</body>
+</html>

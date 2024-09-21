@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <title></title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            background: #F5F5F5;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            text-align: center;
+            width: 100%;
+            max-width: 400px; 
+            padding: 15px;
+            background: #0E0D14;
+            box-sizing: border-box;
+        }
+
+        .top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .profile-pic, .notification-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        .account-number {
+            background-color: #252835;
+            padding: 5px 20px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 10px;
+            color: white;
+            font-size: 14px;
+        }
+
+        .balance {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 40px;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .action-button {
+            text-align: center;
+            flex-grow: 1;
+            max-width: 100px;
+        }
+
+        .action-button img {
+            width: 27px;
+            height: 27px;
+            background-color: #3D3645;
+            padding: 13px;
+            border-radius: 50%;
+            margin-bottom: 1px;
+        }
+
+        .action-button span {
+            display: block;
+            color: white;
+            font-size: 14px;
+        }
+
+        .action-button img:hover {
+            background-color: #454545;
+        }
+        .profile-pic img {
+          width: 50px;
+          border-radius: 50%;
+          height: 50px;
+        }
+        .notification-icon img {
+          width: 27px;
+        }
+        .but {
+          padding: 15px;
+        }
+      .transaction-container {
+        background-color: #ffffff;
+        border-radius: 10px;
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        padding: 10px 13px;
+        width: 93%;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      
+      .icon-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #e0f7ef;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        margin-right: 15px;
+      }
+      
+      .icon-arrow {
+        width: 0;
+        height: 0;
+        border-left: 8px solid #48bb78;
+        border-top: 6px solid transparent;
+        border-bottom: 6px solid transparent;
+        transform: rotate(-45deg);
+      }
+      
+      .transaction-info {
+        flex-grow: 1;
+      }
+      
+      .transaction-title {
+        font-size: 12px;
+        font-weight: bold;
+        color: #333333;
+      }
+      
+      .transaction-date {
+        font-size: 10px;
+        color: #888888;
+      }
+      
+      .transaction-amount {
+        text-align: right;
+      }
+      
+      .amount {
+        font-size: 14px;
+        font-weight: bold;
+        color: #333333;
+      }
+      
+      .status {
+        font-size: 12px;
+        color: #48bb78;
+      }
+      .oth {
+        width: 95%;
+        margin-top: 30px;
+        padding-left: 15px;
+        color: #fff;
+        height: 90px;
+        border-radius: 12px;
+        background: url("back.jpeg")
+      }
+      
+              .bottom-nav {
+                display: flex;
+                justify-content: space-around;
+                width: 100%;
+                background-color: #fff;
+                position: fixed;
+                bottom: 0;
+                border-top: 1px solid #ccc;
+                left: 0;
+              }
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      padding: 10px;
+      right: 0;
+      background-color: #fff;
+      display: flex;
+      justify-content: space-around;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+    
+    .bottom-nav a {
+      color: #8a8a8a;
+      text-decoration: none;
+      font-size: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .bottom-nav a.active {
+      color: #7e57c2;
+    }
+    
+    .bottom-nav img {
+      margin-bottom: 5px;
+    }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="top-row">
+            <div class="profile-pic"><img src="ma.jpeg" alt="IMG_5281.jpeg"></div>
+            <div class="notification-icon" onclick="myImg()"><img src="bell.png" alt="bell.png"></div>
+        </div>
+        <div class="account-number">0123456789 <img src="col.jpeg" alt="col.jpeg" style="width: 12px;"></div>
+        <div class="balance">₦129,000.00</div>
+        <div class="actions">
+            <div class="action-button" onclick="myOp()">
+                <img src="air.jpeg" alt="Airtime">
+                <span>Airtime</span>
+            </div>
+            <div class="action-button" onclick="myOpp()">
+                <img src="zend.jpeg" alt="Transfer" style="width: 25px; height: 25px;">
+                <span>Transfer</span>
+            </div>
+            <div class="action-button" onclick="myOp()">
+                <img src="bis.jpeg" alt="Bills">
+                <span>Bills</span>
+            </div>
+        </div>
+    </div>
+<div class="but">
+<p style="color: #888888; font-size: 13px;">Transactions made..</p>
+
+    <div id="transactions">
+      <div class="transaction-container">
+        <div class="icon-container">
+          <div class="icon-arrow"></div>
+        </div>
+        <div class="transaction-info">
+          <div class="transaction-title" id="name1">Transfer from ...</div>
+          <div class="transaction-date" id="date1">...</div>
+        </div>
+        <div class="transaction-amount">
+          <div class="amount" id="amount1">+₦0.00</div>
+          <div class="status">Successful</div>
+        </div>
+      </div>
+
+      <div class="transaction-container">
+        <div class="icon-container">
+          <div class="icon-arrow"></div>
+        </div>
+        <div class="transaction-info">
+          <div class="transaction-title" id="name2">Transfer from ...</div>
+          <div class="transaction-date" id="date2">...</div>
+        </div>
+        <div class="transaction-amount">
+          <div class="amount" id="amount2">+₦0.00</div>
+          <div class="status">Successful</div>
+        </div>
+      </div>
+
+      <div class="transaction-container">
+        <div class="icon-container">
+          <div class="icon-arrow"></div>
+        </div>
+        <div class="transaction-info">
+          <div class="transaction-title" id="name3">Transfer from ...</div>
+          <div class="transaction-date" id="date3">...</div>
+        </div>
+        <div class="transaction-amount">
+          <div class="amount" id="amount3">+₦0.00</div>
+          <div class="status">Successful</div>
+        </div>
+      </div>
+    <div class="oth">
+    <strong style="font-size: 14px;">Unlock more account priviledges</strong>
+    <img src="back1.png" alt="back1.png" style="width: 80px; float: right; margin-top: 2px; margin-right: 2px;">
+    <p style="font-size: 11px; color: #888888;">Connect your account to the server to start making money</p>
+    </div>
+    <br>
+    <br>
+    <br><br>    <br>
+        <br>
+        <br><br>
+    <div class="bottom-nav">
+        <a href="#">
+          <img src="ehom.png" alt="Home" style="width: 25px;">Home</a>
+        <a href="https://t.me/opaybeta1">
+         <img src="telhom.png" alt="Home" style="width: 25px;">Telegram</a>
+    </div>
+
+      <script>
+        function getRandomDate() {
+          const start = new Date(2024, 0, 1); 
+          const end = new Date(2024, 7, 31); 
+          const date = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+          const options = { month: 'long', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' };
+          return date.toLocaleDateString('en-US', options);
+        }
+
+        function getRandomAmount() {
+          const amount = (Math.floor(Math.random() * 100000) + 1000).toLocaleString('en-US');
+          return `+₦${amount}.00`;
+        }
+
+        function getRandomName() {
+          const names = [
+                "Adebayo", "Adenike", "Chinonso", "Chukwudi", "Emeka", "Ezinne", "Funmilayo", "Ifeanyi",
+                "Kehinde", "Ngozi", "Obinna", "Olumide", "Suleiman", "Titilayo", "Uchechukwu", "Yewande",
+                "Zainab", "Yetunde", "Tunde", "Okafor", "Ikpe", "Musa",
+            ];
+          const randomIndex = Math.floor(Math.random() * names.length);
+          return `Transfer from ${names[randomIndex]}...`;
+        }
+
+        function updateTransactions() {
+          document.getElementById('name1').innerText = getRandomName();
+          document.getElementById('date1').innerText = getRandomDate();
+          document.getElementById('amount1').innerText = getRandomAmount();
+
+          document.getElementById('name2').innerText = getRandomName();
+          document.getElementById('date2').innerText = getRandomDate();
+          document.getElementById('amount2').innerText = getRandomAmount();
+
+          document.getElementById('name3').innerText = getRandomName();
+          document.getElementById('date3').innerText = getRandomDate();
+          document.getElementById('amount3').innerText = getRandomAmount();
+        }
+
+        setInterval(updateTransactions, 3000);
+        
+        function myImg() {
+          alert('You are using the lastest version of this application')
+        }
+        
+        function myOpp() {
+          location.href = 'with.html'
+        }
+        
+        function myOp() {
+          alert('Get your account connected to enjoy this feature')
+        }
+      </script>
+</body>
+</html>
