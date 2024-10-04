@@ -1,0 +1,131 @@
+*{
+    margin: 0;
+    border: 0;
+    overflow: hidden;
+}
+body{
+    display: block;
+    background-color: rgb(80, 80, 80);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+#username{
+    margin: 30vh 10vw 5vh 10vw;
+    
+}
+#password{
+    margin: 0vh 10vw 5vh 10vw;
+    
+}
+
+.info{
+    border: 2px solid rgb(80, 80, 80);
+    border-radius: 10px;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    height: 8vh;
+    color: black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+    font-size: 21px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+    font-weight: 700;
+    width: 80vw;
+}
+
+.info::placeholder{
+    font-size: 14px;
+    font-weight: 700;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.info:focus{
+    border: 2px solid #1DBEFF;
+    border-radius: 10px;
+    height: 8vh;
+    color: black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    box-shadow: 1px solid white;
+
+    font-size: 21px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    outline: none;
+    font-weight: 700;
+    width: 80vw;
+}
+#enterApp{
+    width: 40vw;
+    height: 6vh;
+    font-weight: bolder;
+    font-size: 16px;
+    border-radius: 10px;
+    background-color: #1DBEFF;
+    margin: 15vh 30vw 0vh 30vw;
+}
+
+#enterApp:active{
+    width: 44vw;
+    height: 6.6vh;
+    font-weight: bolder;
+    font-size: 16px;
+    border-radius: 10px;
+    background-color: #1DBEFF;
+    margin: 14.4vh 28vw 0vh 28vw;
+}
+.notification {
+    position: fixed;
+    top: 10vh;
+    width: auto;
+    height: auto;
+    background-color:#1aa3d9;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    text-wrap: nowrap;
+}
+
+.notification.show {
+    display: block;
+    animation-name: slideLeftRight;
+    animation-duration:  25s;
+    width: auto;
+    height: auto;
+    animation-timing-function: ease-in;
+    text-wrap: nowrap;
+}
+
+@keyframes slideLeftRight {
+    0% {
+        left: -100vw;
+    }
+    
+    100% {
+        left: 110vw;
+    }
+}
+
+#wrong-access-token{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    left: 25vw;
+    right: 25vw;
+    top: 15vh;
+    height: 20vh;
+    z-index: 1000%;
+    background-color: rgb(100, 100, 100);
+    ;
+
+}
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #000;
+    font-weight: bold; 
+    color: red;
+    font-size: 24px;
+    border: none;
+    background: none;
+}

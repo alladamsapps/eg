@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">\
+    <link rel="stylesheet" href="index.css">
+    <title>Amazon Prime</title>
+</head>
+<body>
+    
+    <div style="display: flex; justify-content: center; width: 100vw;">
+    <div id="notification" class="notification">Olivia cashed out ₦156,000.00</div> 
+    </div>
+    <center><h1 style="font-size: 22px; color: white;">Welcome To <span style="color: #1DBEFF;">Amazon Prime</span></h1></center>
+    <form id="login-form" action="dashboard.html">
+        <input placeholder="Username" type="text" id="username" class="info" required minlength="3" name="username">
+        <input placeholder="Password" type="password" id="password" class="info" required minlength="7" name="password">
+        <button id="enterApp" >Login: </button>
+    </form>
+    <script src="index.js">
+        
+    </script>
+    <!-- <script>
+    const passwordInput = document.getElementById('token');
+        const checkPasswordBtn = document.getElementById('enterApp');
+        const login_form = document.getElementById('login-form')
+        checkPasswordBtn.addEventListener('click', (e) => {
+            if(login_form.checkValidity()){
+                e.preventDefault();
+        const password = passwordInput.value.trim();
+
+        if (password === 'QRC070649') {
+            window.location.href = 'dashboard.html'
+        } else {
+            alert('Invalid password. Please try again.');
+        }
+            }
+        
+        });
+    </script> -->
+</body>
+</html>
